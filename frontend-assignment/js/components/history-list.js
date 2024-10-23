@@ -7,11 +7,10 @@ export function initHistoryList() {
   renderHistoryList();
   addHistoryListEventListener();
 }
-
 function addHistoryListEventListener() {
   $sectionHistory.addEventListener("click", function (event) {
     const element = event.target;
-    if (!element.className.includes("delete-button")) return;
+      if (!element.classList.contains("delete-button")) return;
 
     const { dateid, itemid } = element.dataset;
 
@@ -43,18 +42,18 @@ export function renderHistoryList() {
           .map(({description, category, amount, fundsAtTheTime, createAt, id}) => {
 
               const time = new Date(createAt).toLocaleTimeString('ko-kr', {
-                  dateStyle: 'short',
+                  timeStyle: 'short',
                   hourCycle: 'h24',
               });
 
-              return `<section className="history-item">
-          <section className="history-item-column">
-            <div className="create-at">${time}</div>
-            <div className="history-detail">
-              <div className="history-detail-row history-detail-title">
+              return `<section class="history-item">
+          <section class="history-item-column">
+            <div class="create-at">${time}</div>
+            <div class="history-detail">
+              <div class="history-detail-row history-detail-title">
                 <p>${description}</p>
               </div>
-              <div className="history-detail-row history-detail-subtitle">
+              <div class="history-detail-row history-detail-subtitle">
                 <p>${category}</p>
                 <p>
                   ${amount.toLocaleString()}
@@ -62,11 +61,11 @@ export function renderHistoryList() {
                 </p>
               </div>
             </div>
-            <div className="delete-section">
-              <button className="delete-button" data-dateid="${dateId}" data-itemid="${id}">🗑</button>
+            <div class="delete-section">
+              <button class="delete-button" data-dateid="${dateId}" data-itemid="${id}">🗑</button>
             </div>
           </section>
-          <section className="history-item-caption">
+          <section class="history-item-caption">
             <p>
               <span>남은 자산</span>
               <span>${fundsAtTheTime.toLocaleString()}</span>

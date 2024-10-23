@@ -49,10 +49,10 @@ export function initStore() {
 
 export function addNewHistory(newHistory) {
   try {
-    if (store.detailList[store.todayId]) {
-      store.detailList[store.todayId] = store.detailList[store.todayId].push(newHistory);
+    if (store.detailList) { // 리스트가 있으면 추가
+      store.detailList[store.todayId].push(newHistory);
     } else {
-      store.detailList[store.todayId] = [newHistory];
+      store.detailList[store.todayId] = [newHistory]; // 리스트가 없으면 생성
     }
     store.currentFunds -= newHistory.amount;
 
@@ -66,14 +66,14 @@ export function addNewHistory(newHistory) {
 
 export function removeHistory(dateId, itemId) {
   try {
-    store.detailList[dateId] = store.detailList[dateId].filter(
-        ({id, amount}) => {
-          if (id === Number(itemId)) {
-            store.currentFunds += amount;
-          }
-          return id !== Number(itemId);
-        }
-    );
+
+      store.detailList[dateId] = store.detailList[dateId].filter(
+          ({id, amount}) => {
+            if (id === Number(itemId)) {
+              store.currentFunds += amount;
+            }
+            return id !== Number(itemId);
+          })
 
     updateStorage();
     return true;

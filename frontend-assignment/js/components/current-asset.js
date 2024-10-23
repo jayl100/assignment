@@ -37,6 +37,6 @@ function addCurrentAssetEventListener() {
 }
 
 export function renderCurrentAsset() {
-    $currentAssetInput.textContent = store.currentFunds?.toLocaleString() ?? "-";
+    $currentAssetValue.textContent = store.currentFunds?.toLocaleString() ?? "-";
     $currentAssetInput.value = store.currentFunds;
 }
