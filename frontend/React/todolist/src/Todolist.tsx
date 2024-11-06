@@ -22,7 +22,10 @@ const Todolist: React.FC = () => {
         ]
     )
 
+
     const [newTodo, setNewTodo] = useState<string>('')
+    const [showDetail, setShowDetail] = useState<boolean>(false)
+    const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null)
 
     const handleCheckedChange = (itemId: number) => {
         setTodos((prevItems) =>
@@ -34,6 +37,19 @@ const Todolist: React.FC = () => {
             setTodos([...todos, {id : Date.now(), text : newTodo, isChecked : false}])
             setNewTodo('');
         }
+    }
+
+    const removeTodo = (id: number) => {
+        setTodos(todos.filter((todo) => todo.id !== id));
+    }
+
+    const handelTodoClick = (todo: Todo) => {
+        setShowDetail(true);
+        setSelectedTodo(todo);
+    }
+
+    const handleCloseDetail = () => {
+        setShowDetail(false);
     }
 
     return (
@@ -53,17 +69,23 @@ const Todolist: React.FC = () => {
                     <ul>
                         {
                             todos.map((todo, index) => (
-                                <li className="todo_text" key={todo.id}>
-                                    <input type="checkbox" onChange={() => {
+                                <li className="todo_list" key={todo.id}>
+                                    <input className="todo_check" type="checkbox" onChange={() => {
                                         handleCheckedChange(todo.id)
                                     }}></input>
-                                    <span>
+                                    <span onClick={() => handelTodoClick(todo)}
+                                          className="todo_text">
                                         {
                                             todo.isChecked ?
                                                 <del>{todo.text}</del> :
                                                 <span>{todo.text}</span>
                                         }
                                     </span>
+                                    <button
+                                        className="del_btn"
+                                        onClick={() => removeTodo(todo.id)}
+                                    >삭제
+                                    </button>
                                 </li>
                             ))
                         }

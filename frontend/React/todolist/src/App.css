@@ -4,19 +4,44 @@
   height: 28px;
 }
 
+.todo_list {
+  display: flex;
+  margin: 4px 0;
+  align-items: center;
+}
+
+.todo_check {
+  margin-right: 8px;
+  height: 18px;
+  width: 18px;
+}
+
+.del_btn {
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #d9d9d9;
+  color: #222;
+  margin-left: 20px;
+}
+.del_btn:hover {
+  background-color: #222;
+  color: #d9d9d9;
+  font-weight: bold;
+}
+
 .todo_text {
   font-size: 16px;
   color: #222222;
   list-style: none;
   font-weight: bold;
-  text-align: left;
-  margin-bottom: 4px;
 }
 
 .board {
   background-color: #f9f9f9;
   border-radius: 12px;
   overflow: hidden;
+  text-align: left;
 }
 
 .container {
