@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Button } from "react-bootstrap";
+import TodoModal from './TodoModal'
 
 // interface 대신 type를 사용하는 이유
 // 새로운 객체의 구조를 잡을 때 interface를 사용
@@ -73,7 +74,8 @@ const Todolist: React.FC = () => {
                                     <input className="todo_check" type="checkbox" onChange={() => {
                                         handleCheckedChange(todo.id)
                                     }}></input>
-                                    <span onClick={() => handelTodoClick(todo)}
+                                    <span
+                                        onClick={() => handelTodoClick(todo)}
                                           className="todo_text">
                                         {
                                             todo.isChecked ?
@@ -91,6 +93,7 @@ const Todolist: React.FC = () => {
                         }
                     </ul>
                 </div>
+                <TodoModal show={showDetail} todo={selectedTodo} handleClose={handleCloseDetail}></TodoModal>
             </div>
         </>
     )
