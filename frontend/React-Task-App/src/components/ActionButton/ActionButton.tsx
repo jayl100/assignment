@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ActionButtion = () => {
+const ActionButton = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const ActionButtion = () => {
   )
 }
 
-export default ActionButtion
+export default ActionButton

@@ -3,7 +3,7 @@ import {createGlobalTheme, style} from "@vanilla-extract/css";
 export const vars = createGlobalTheme(":root", {
     color: {
         main: "#ffa726",
-        mainDarker: "##f57c00",
+        mainDarker: "#f57c00",
         mainFaded: "#ffb74d",
         mainFadedBright: "#ffa726",
         list: "rgb(235,236,240)",
@@ -25,7 +25,7 @@ export const vars = createGlobalTheme(":root", {
         P1: "12px"
     },
     spacing: {
-        small: "5px",
+        spacingSmall: "5px",
         medium: "10px",
         big1: "20px",
         big2: "15px",
