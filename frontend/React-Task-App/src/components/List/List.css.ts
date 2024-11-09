@@ -6,7 +6,8 @@ export const listWrapper = style({
   flexDirection: 'column',
   marginRight: vars.spacing.listSpacing,
   padding: vars.spacing.big2,
-  minWidth: 'max-content',
+  minWidth: vars.minWidth.list,
+  width: 'max-content',
   height: 'max-content',
   borderRadius: 10,
   backgroundColor: vars.color.list,
@@ -23,7 +24,7 @@ export const header = style({
 })
 
 export const deleteButton = style({
-  padding: vars.spacing.small,
+  padding: vars.spacing.spacingSmall,
   borderRadius: 20,
   fontSize: vars.fontSizing.T2,
   marginLeft: 'auto',
