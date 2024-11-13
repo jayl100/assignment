@@ -1,14 +1,12 @@
 import Home from "./pages/Home";
 import Layout from "./components/layout/Layout";
-import {GlobalStyle} from "./style/global";
-import ThemeSwitcher from "./components/header/ThemeSwitcher";
-import {BookStoreThemeProvider, ThemeContext} from "./context/themeContext";
+import {BookStoreThemeProvider} from "./context/themeContext";
+import Header from "./components/common/Header";
 
 function App() {
 
   return (
     <BookStoreThemeProvider>
-      <ThemeSwitcher />
       <Layout>
         <Home/>
       </Layout>
