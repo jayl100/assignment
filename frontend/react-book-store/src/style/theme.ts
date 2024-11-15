@@ -40,7 +40,7 @@ interface Theme {
 export const light: Theme = {
   name: 'light',
   color: {
-    primary: '#d9d9d9',
+    primary: '#00599D',
     background: 'lightgrey',
     secondary: "#5f5f5f",
     third: "#d9d9d9",

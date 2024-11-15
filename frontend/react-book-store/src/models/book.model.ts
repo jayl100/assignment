@@ -11,8 +11,8 @@ export interface Book {
   pages: number;
   contents: string;
   price: number;
-  likes: number;
   pub_date: string;
+  likes: number;
 }
 
 export interface BookDetail extends Book {
