@@ -17,5 +17,16 @@ export interface Book {
 
 export interface BookDetail extends Book {
   category_name: string;
-  liked: boolean;
+  liked_book_id: boolean;
+  user_id: number;
 }
+
+export interface BookReviewItem {
+  id: number;
+  user_name: string;
+  created_at:string;
+  content: string;
+  score: number;
+}
+
+export type BookReviewItemWrite = Pick<BookReviewItem, 'content' | 'score'>;

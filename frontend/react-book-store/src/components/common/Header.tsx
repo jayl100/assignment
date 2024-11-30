@@ -103,9 +103,13 @@ const HeaderStyle = styled.header`
     
     .auth {
         ul {
-            display: flex;
-            gap: 16px;
+          display: flex;
+          gap: 32px;
             li {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                
                 a, button {
                     font-size: 1rem;
                     font-weight: 600;

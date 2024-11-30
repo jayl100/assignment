@@ -35,3 +35,26 @@ export const createClient = (config?: AxiosRequestConfig) => {
 };
 
 export const httpClient = createClient();
+
+type RequestMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+
+export const requestHandler = async <R = undefined, T = undefined>(method: RequestMethod, url: string, payload?: T) => {
+  let response;
+  
+  switch (method) {
+    case 'GET':
+      response = await httpClient.get<R>(url);
+      break;
+    case 'POST':
+      response = await httpClient.post(url, payload);
+      break;
+    case 'PUT':
+      response = await httpClient.put<R>(url, payload);
+      break;
+    case 'DELETE':
+      response = await httpClient.delete<R>(url);
+      break;
+  }
+  
+  return response.data;
+};

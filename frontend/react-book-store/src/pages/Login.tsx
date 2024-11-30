@@ -1,46 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Title from "../components/common/Title";
 import InputText from "../components/common/InputText";
 import Button from "../components/common/Button";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form"
-import {login, signup} from "../api/auth.api";
-import {useAlert} from "../hooks/useAlert";
 import {SignupStyle} from './Signup';
-import {useAuthStore} from "../store/authStore";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
+import { useAuth } from '../hooks/useAuth';
 
-export interface SignupProps {
+export interface LoginProps {
   email: string;
   password: string;
 }
 
 function Login() {
-
-  const navigate = useNavigate();
-  const showAlert = useAlert();
-
-  const {isLoggedIn, storeLogin, storeLogout} = useAuthStore();
+  const { userSignup } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: {errors}
-  } = useForm<SignupProps>();
+  } = useForm<LoginProps>();
 
-  const onSubmit = (data: SignupProps) => {
-    login(data).then((res) => {
-
-        // 상태 변화
-        storeLogin(res.token);
-
-        showAlert('successfully logined!');
-        navigate('/')
-      }, (error) => {
-        showAlert('error occured');
-      }
-    )
+  const onSubmit = (data: LoginProps) => {
+    userSignup(data);
   }
 
   return (
